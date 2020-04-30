@@ -17,7 +17,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     gd --with-jpeg-dir=/usr/include/ \
   && docker-php-ext-install \
     gd \
-    mysqli \
+    mysql \
   # Uninstall obsolete packages:
   && apt-get autoremove -y \
     libpng-dev \

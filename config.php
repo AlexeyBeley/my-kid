@@ -1,6 +1,6 @@
 <?php
 
-$dbms = 'phpbb\\db\\driver\\mysqli';
+$dbms = 'phpbb\\db\\driver\\mysql';
 $dbhost = $_ENV['DBHOST'];
 $dbport = $_ENV['DBPORT'];
 $dbname = $_ENV['DBNAME'];
