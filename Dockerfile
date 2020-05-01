@@ -17,7 +17,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     gd --with-jpeg=/usr/include/ \
   && docker-php-ext-install \
     gd \
-    mysql \
+    mysqli \
   # Uninstall obsolete packages:
   && apt-get autoremove -y \
     libpng-dev \
@@ -67,12 +67,12 @@ VOLUME \
   /var/www/html/images/avatars/upload
 
 ENV \
-  DBHOST=mysql \
+  DBHOST= \
   DBPORT= \
-  DBNAME=phpbb \
-  DBUSER=phpbb \
+  DBNAME= \
+  DBUSER= \
   DBPASSWD= \
-  TABLE_PREFIX=phpbb_ \
+  TABLE_PREFIX= \
   PHPBB_INSTALLED=true \
   AUTO_DB_MIGRATE=false
 
