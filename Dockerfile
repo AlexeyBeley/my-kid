@@ -52,7 +52,7 @@ COPY bin /usr/local/bin
 # Install phpBB into the Apache document root:
 RUN download-phpbb /var/www \
   && rm -rf \
-    /var/www/phpBB3/install \
+    #/var/www/phpBB3/install \
     /var/www/phpBB3/docs \
     /var/www/html \
   && mv /var/www/phpBB3 /var/www/html
