@@ -73,7 +73,7 @@ ENV \
   DBUSER= \
   DBPASSWD= \
   TABLE_PREFIX= \
-  PHPBB_INSTALLED=true \
-  AUTO_DB_MIGRATE=false
+  PHPBB_INSTALLED=false \
+  AUTO_DB_MIGRATE=true
 
 CMD ["phpbb-apache2"]
