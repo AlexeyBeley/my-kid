@@ -14,7 +14,7 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     bzip2 \
   # Install required PHP extensions:
   && docker-php-ext-configure \
-    gd --with-jpeg=/usr/include/ \
+    gd --with-jpeg-dir=/usr/include/ \
   && docker-php-ext-install \
     gd \
     mysqli \
