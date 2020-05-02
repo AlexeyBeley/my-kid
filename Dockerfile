@@ -67,6 +67,7 @@ VOLUME \
   /var/www/html/images/avatars/upload
 
 ENV \
+  SERVER_NAME= \
   DBHOST= \
   DBPORT= \
   DBNAME= \
