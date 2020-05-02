@@ -11,6 +11,8 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     libjpeg-dev \
     imagemagick \
     jq \
+    wget \
+    unzip \
     bzip2 \
   # Install required PHP extensions:
   && docker-php-ext-configure \
@@ -56,6 +58,8 @@ RUN download-phpbb /var/www \
     /var/www/phpBB3/docs \
     /var/www/html \
   && mv /var/www/phpBB3 /var/www/html
+
+RUN install-languages /var/www/html
 
 # Add the phpBB config file:
 COPY config.php /var/www/html/
