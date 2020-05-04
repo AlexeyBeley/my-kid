@@ -22,3 +22,18 @@ export TABLE_PREFIX='phpbb_'
 export PHPBB_INSTALLED=true
 export AUTO_DB_MIGRATE=false
 docker-compose up -d
+
+#With ssl
+#docker run -v /var/www/docker_phpbb/phpbb/ssl:/etc/apache2/ssl -e SERVER_NAME -e DBHOST -e DBPORT -e DBNAME -e DBUSER -e DBPASSWD -e TABLE_PREFIX -p 80:80 -p 443:443 apache7.2
+
+#No ssl
+#docker run -d -e SERVER_NAME -e DBHOST -e DBPORT -e DBNAME -e DBUSER -e DBPASSWD -e TABLE_PREFIX -p 80:80 -p 443:443 apache7.2
+
+
+
+
+
+
+
+
+
