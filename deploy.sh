@@ -12,12 +12,13 @@ openssl req -nodes -x509 -newkey rsa:2048 \
 #ubuntu 20
 sudo chmod 777 /var/run/docker.sock
 
+export SERVER_NAME="my-kid.co.il"
 export DBPASSWD=''
 export DBHOST='phpbb.crgmvorrv472.us-east-2.rds.amazonaws.com'
 export DBPORT='3306'
 export DBNAME='phpbb_db'
 export DBUSER='phpbb_user'
 export TABLE_PREFIX='phpbb_'
-export PHPBB_INSTALLED=false
+export PHPBB_INSTALLED=true
 export AUTO_DB_MIGRATE=false
 docker-compose up -d

@@ -10,5 +10,5 @@ services:
       - DBPASSWD
       - PHPBB_INSTALLED
       - AUTO_DB_MIGRATE
-    volumes:
-      - ./ssl:/etc/apache2/ssl
+    #volumes:
+    #  - ./ssl:/etc/apache2/ssl
