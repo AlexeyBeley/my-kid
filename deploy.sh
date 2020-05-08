@@ -16,22 +16,22 @@ export SERVER_NAME="my-kid.co.il"
 export DBPASSWD=''
 export DBHOST='phpbb-db.crgmvorrv472.us-east-2.rds.amazonaws.com'
 export DBPORT='3306'
-export DBNAME='phpbb_db_prod'
-export DBUSER='phpbb_user_prod'
+export DBNAME='phpbb_prod_db'
+export DBUSER='phpbb_prod_user'
 export TABLE_PREFIX='phpbb_'
 export PHPBB_INSTALLED=true
 export AUTO_DB_MIGRATE=false
 
 docker build . --tag horey
 #No ssl
-docker run -d -e SERVER_NAME -e DBHOST -e DBPORT -e DBNAME -e DBUSER -e DBPASSWD -e TABLE_PREFIX -p 80:80 -p 443:443 horey
+docker run -d -e SERVER_NAME -e DBHOST -e DBPORT -e DBNAME -e DBUSER -e DBPASSWD -e TABLE_PREFIX -p 80:80 horey
 
 #docker-compose up -d
 
 #With ssl
 #docker run -v /var/www/docker_phpbb/phpbb/ssl:/etc/apache2/ssl -e SERVER_NAME -e DBHOST -e DBPORT -e DBNAME -e DBUSER -e DBPASSWD -e TABLE_PREFIX -p 80:80 -p 443:443 apache7.2
 
-mysql -h $DBHOST -P $DBPORT -u phpbb_prod_user -D phpbb_prod_db -p
+mysql -h $DBHOST -P $DBPORT -u $DBUSER -D $DBNAME -p
 
 
 

@@ -1,0 +1,16 @@
+Connect db:
+mysql -h $DBHOST -P $DBPORT -u $DBUSER -D $DBNAME -p
+
+
+
+View cookie settings
+select config_value from phpbb_config WHERE config_name = 'cookie_domain';
+select config_value from phpbb_config WHERE config_name = 'cookie_name';
+select config_value from phpbb_config WHERE config_name = 'cookie_path';
+select config_value from phpbb_config WHERE config_name = 'cookie_secure';
+
+Change cookie settings
+UPDATE phpbb_config SET config_value = '.my-kid.co.il' WHERE config_name = 'cookie_domain';
+UPDATE phpbb_config SET config_value = 'YOUR COOKIE NAME HERE' WHERE config_name = 'cookie_name';
+UPDATE phpbb_config SET config_value = 'YOUR COOKIE PATH HERE' WHERE config_name = 'cookie_path';
+UPDATE phpbb_config SET config_value = '1' WHERE config_name = 'cookie_secure';
