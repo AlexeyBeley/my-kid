@@ -63,6 +63,7 @@ RUN install-languages /var/www/html
 
 # Add the phpBB config file:
 COPY config.php /var/www/html/
+COPY .htaccess /var/www/html/adm/
 
 # Expose the phpBB upload directories as volumes:
 VOLUME \
