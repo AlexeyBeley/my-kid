@@ -17,5 +17,5 @@ pass_line=$(docker logs $docker_id | grep "GENERATED ROOT PASSWORD")
 DB_PASSWORD=$(echo $pass_line | awk '{print $5}')
 export DB_PASSWORD
 
-create flask
+#create flask
 #run tests
