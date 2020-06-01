@@ -13,7 +13,7 @@ fi
 docker pull mysql/mysql-server:5.7
 docker_id=$(docker run --name=$DB_NAME -d -p 3306:3306  mysql/mysql-server:5.7)
 
-sleep 5
+sleep 10
 
 pass_line=$(docker logs $docker_id | grep "GENERATED ROOT PASSWORD")
 DB_PASSWORD=$(echo $pass_line | awk '{print $5}')
