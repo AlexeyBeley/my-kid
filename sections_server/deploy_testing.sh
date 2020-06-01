@@ -3,7 +3,7 @@
 #create_database docker
 export DB_NAME="sections_db_test"
 
-running_container_id=$(docker ps -f "name=$DB_NAME" -q)
+running_container_id=$(docker container ls -all  -f "name=$DB_NAME")
 if [[ !  -z  $running_container_id""  ]]
 then
   docker kill $running_container_id
