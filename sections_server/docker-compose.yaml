@@ -1,0 +1,13 @@
+mysql:
+    container_name: sections_db_test
+    build: mysql
+    environment:
+        - MYSQL_DATABASES=sections_db_test
+        - MYSQL_ROOT_PASSWORD=root
+        - MYSQL_HOST=127.0.0.1
+        - MYSQL_PORT=3306
+        - MYSQL_USER=helpless
+        - MYSQL_PASSWORD=dev
+    ports:
+        # MySQL
+        - "3306:3306"
