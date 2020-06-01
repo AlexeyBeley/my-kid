@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -x
 #create_database docker
 export DB_NAME="sections_db_test"
 
@@ -16,6 +16,6 @@ docker_id=$(docker run --name=$DB_NAME -d -p 3306:3306  mysql/mysql-server:5.7)
 pass_line=$(docker logs $docker_id | grep "GENERATED ROOT PASSWORD")
 DB_PASSWORD=$(echo $pass_line | awk '{print $5}')
 export DB_PASSWORD
-
+set +x
 #create flask
 #run tests
