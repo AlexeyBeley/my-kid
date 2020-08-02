@@ -9,10 +9,13 @@ private_dir:
 	cp ../secrets.sh ${PATH_TO_ROOT}/private &&\
 	chmod +x ${PATH_TO_ROOT}/private/secrets.sh
 
+docker_install:
+	sudo apt install docker.io
+
 web_dir:
 	sudo mkdir -p /var/www/docker_phpbb
 
-build: web_dir
+build: web_dir docker_install
 	source ${PATH_TO_ROOT}/private/secrets.sh && docker build . --tag horey
 
 run: build
