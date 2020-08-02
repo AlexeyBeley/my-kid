@@ -16,12 +16,16 @@ docker_install:
 web_dir:
 	sudo mkdir -p /var/www/docker_phpbb
 
-build: web_dir docker_install
+user_access:
+	sudo usermod -aG docker $USER
+	#sudo chmod 777 /var/run/docker.sock
+
+build: web_dir docker_install user_access
 	source ${PATH_TO_ROOT}/private/secrets.sh && docker build . --tag horey
 
 run: build
 	docker run -d -e SERVER_NAME -e DBHOST -e DBPORT -e DBNAME -e DBUSER -e DBPASSWD -e TABLE_PREFIX -p 80:80 horey &&\
-	chmod 777 /var/run/docker.sock
+
 
 
 
