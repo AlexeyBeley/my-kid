@@ -14,13 +14,18 @@
 set -e
 
 # URL to the official list of phpBB versions:
+
 VERSIONS_URL=https://version.phpbb.com/phpbb/versions.json
 # Base URL for the release downloads:
 RELEASE_BASE_URL=https://www.phpbb.com/files/release/
+
 
 # Retrieve the latest stable version:
 VERSION=$(curl -sL "$VERSIONS_URL" |
   jq -r '.stable["'"${BASE_VERSION:-3.2}"'"].current')
 
+DOWNLOADS_URL=https://download.phpbb.com/pub/release/3.2/$VERSION/phpBB-$VERSION.tar.bz2
+
+echo "$DOWNLOADS_URL"
 # Download and extract the phpBB package into the given directory:
-curl -sL "$RELEASE_BASE_URL/phpBB-$VERSION.tar.bz2" | tar xj -C "${1:-$PWD}"
+curl -sL "$DOWNLOADS_URL" | tar xj -C "${1:-$PWD}"

@@ -1,0 +1,26 @@
+#!/bin/sh
+
+set -e
+WORKING_DIR=$1
+
+#https://www.phpbb.com/customise/db/translation/hebrew
+HEBREW_URL=https://www.phpbb.com/customise/db/download/164216
+
+#https://www.phpbb.com/customise/db/translation/russian
+RUSSIAN_URL=https://www.phpbb.com/customise/db/download/174496
+
+# Download and extract the phpBB package into the given directory:
+wget -O language_heb.zip $HEBREW_URL
+wget -O language_ru.zip $RUSSIAN_URL
+
+mkdir -p language_unzipped
+
+unzip language_heb.zip -d language_unzipped
+unzip language_ru.zip -d language_unzipped
+
+cp -r language_unzipped/*/language/* $WORKING_DIR/language/
+cp -r language_unzipped/*/styles/* $WORKING_DIR/styles/
+
+rm -rf language_unzipped
+rm -rf language_heb.zip
+rm -rf language_ru.zip

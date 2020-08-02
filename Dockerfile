@@ -1,6 +1,6 @@
 # phpBB Dockerfile
 
-FROM php:7-apache
+FROM php:7.2-apache
 
 # Do a dist-upgrade and install the required packages:
 RUN export DEBIAN_FRONTEND=noninteractive \
@@ -11,6 +11,8 @@ RUN export DEBIAN_FRONTEND=noninteractive \
     libjpeg-dev \
     imagemagick \
     jq \
+    wget \
+    unzip \
     bzip2 \
   # Install required PHP extensions:
   && docker-php-ext-configure \
@@ -57,6 +59,8 @@ RUN download-phpbb /var/www \
     /var/www/html \
   && mv /var/www/phpBB3 /var/www/html
 
+RUN install-languages /var/www/html
+
 # Add the phpBB config file:
 COPY config.php /var/www/html/
 
@@ -67,12 +71,13 @@ VOLUME \
   /var/www/html/images/avatars/upload
 
 ENV \
-  DBHOST=mysql \
+  SERVER_NAME= \
+  DBHOST= \
   DBPORT= \
-  DBNAME=phpbb \
-  DBUSER=phpbb \
+  DBNAME= \
+  DBUSER= \
   DBPASSWD= \
-  TABLE_PREFIX=phpbb_ \
+  TABLE_PREFIX= \
   PHPBB_INSTALLED=true \
   AUTO_DB_MIGRATE=false
 
