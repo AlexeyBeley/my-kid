@@ -1,7 +1,7 @@
 #git clone https://github.com/AlexeyBeley/my-kid.git
 #sudo apt install make
 #put secretes.sh in the same dir you run clone from(~)
-
+SHELL := /bin/bash
 PATH_TO_ROOT=~/my-kid
 
 private_dir:
@@ -16,7 +16,7 @@ web_dir:
 
 set_env:
 	source ${PATH_TO_ROOT}/private/secrets.sh &&\
-	echo $SERVER_NAME
+	echo ${SERVER_NAME}
 	#docker build . --tag horey
 	#No ssl
 	#docker run -d -e SERVER_NAME -e DBHOST -e DBPORT -e DBNAME -e DBUSER -e DBPASSWD -e TABLE_PREFIX -p 80:80 horey
