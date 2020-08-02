@@ -11,7 +11,7 @@ private_dir:
 
 docker_install:
 	sudo apt update
-	sudo apt install docker.io
+	sudo apt install docker.io -y
 
 web_dir:
 	sudo mkdir -p /var/www/docker_phpbb
