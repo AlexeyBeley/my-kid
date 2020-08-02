@@ -10,9 +10,7 @@ private_dir:
 	chmod +x ${PATH_TO_ROOT}/private/secrets.sh
 
 web_dir:
-	mkdir /var/www/docker_phpbb
-	cd /var/www/docker_phpbb
-	#ubuntu 20
+	mkdir -p /var/www/docker_phpbb
 
 build: web_dir
 	source ${PATH_TO_ROOT}/private/secrets.sh && docker build . --tag horey
