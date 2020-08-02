@@ -24,7 +24,7 @@ build: web_dir docker_install user_access
 	source ${PATH_TO_ROOT}/private/secrets.sh && docker build . --tag horey
 
 run: build
-	source ${PATH_TO_ROOT}/private/secrets.sh && docker run -d -e SERVER_NAME -e DBHOST -e DBPORT -e DBNAME -e DBUSER -e DBPASSWD=${DBPASSWD} -e TABLE_PREFIX -p 80:80 horey
+	source ${PATH_TO_ROOT}/private/secrets.sh && docker run -d -e SERVER_NAME -e DBHOST -e DBPORT -e DBNAME -e DBUSER -e DBPASSWD -e TABLE_PREFIX -p 80:80 horey
 
 
 
