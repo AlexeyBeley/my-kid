@@ -14,13 +14,12 @@ web_dir:
 	cd /var/www/docker_phpbb
 	#ubuntu 20
 
-set_env:
-	source ${PATH_TO_ROOT}/private/secrets.sh && echo ${SERVER_NAME}
-	#docker build . --tag horey
-	#No ssl
-	#docker run -d -e SERVER_NAME -e DBHOST -e DBPORT -e DBNAME -e DBUSER -e DBPASSWD -e TABLE_PREFIX -p 80:80 horey
+build: web_dir
+	source ${PATH_TO_ROOT}/private/secrets.sh && docker build . --tag horey
 
-	#sudo chmod 777 /var/run/docker.sock
+run: build
+	docker run -d -e SERVER_NAME -e DBHOST -e DBPORT -e DBNAME -e DBUSER -e DBPASSWD -e TABLE_PREFIX -p 80:80 horey &&\
+	chmod 777 /var/run/docker.sock
 
 
 
