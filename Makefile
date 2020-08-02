@@ -1,6 +1,8 @@
-PATH_TO_ROOT=~/my-kid
 #git clone https://github.com/AlexeyBeley/my-kid.git
-#put secretes in the same dir
+#sudo apt install make
+#put secretes.sh in the same dir you run clone from(~)
+
+PATH_TO_ROOT=~/my-kid
 
 private_dir:
 	mkdir -p ${PATH_TO_ROOT}/private &&\
@@ -13,7 +15,7 @@ web_dir:
 	#ubuntu 20
 
 set_env:
-	source ./private/secrets.sh &&\
+	source ${PATH_TO_ROOT}/private/secrets.sh &&\
 	echo $SERVER_NAME
 	#docker build . --tag horey
 	#No ssl
