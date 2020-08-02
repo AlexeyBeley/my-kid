@@ -10,6 +10,7 @@ private_dir:
 	chmod +x ${PATH_TO_ROOT}/private/secrets.sh
 
 docker_install:
+	sudo apt update
 	sudo apt install docker.io
 
 web_dir:
